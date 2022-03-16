@@ -1,12 +1,21 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import '../../css/Products/Products.css'
-
+import ProductModal from './ProductModal'
 export default function Products(props) {
+  const[product,setProduct]=useState("")
+  function openModal(item){
+    setProduct(item)
+  }
+  const closeModal =()=>{
+    setProduct(false)
+  }
   return (
     <div className='products-wrapper'>
       {props.products.map(item=>(
       <div className='product-item' key={item.id}>
-          <img src={item.imgUrl}alt={item.title} className='pro-img'/>
+        <a href='#' onClick={()=>openModal(item)}>
+        <img src={item.imgUrl}alt={item.title} className='pro-img'/>
+        </a>
          <div className='product-desc'>
           <span>{item.title}</span>
           <span>{item.price}</span>
@@ -16,6 +25,8 @@ export default function Products(props) {
         
          
       </div>))}
+      <ProductModal product={product} closeModal={closeModal}/>
+  
     </div>
   )
 }
