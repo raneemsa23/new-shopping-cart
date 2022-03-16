@@ -13,7 +13,7 @@ export default function Products(props) {
          
          </div>
          <button>Add To Cart</button>
-         <button>raneem</button>
+        
          
       </div>))}
     </div>
