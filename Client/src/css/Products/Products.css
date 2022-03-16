@@ -21,6 +21,7 @@
   align-items: center;
 }
 .products-wrapper .product-item button {
+  align-items: center;
   width: 100%;
   display: flex;
   flex-direction: column;
