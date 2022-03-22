@@ -1,0 +1,14 @@
+.cart {
+  width: 70%;
+  margin: 10px auto;
+}
+
+.item {
+  border: 1px solid #d1d1d1;
+  padding: 20px;
+  margin: 20px;
+}
+.item img {
+  width: 80px;
+  height: 80px;
+}
