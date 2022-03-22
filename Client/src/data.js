@@ -5,7 +5,7 @@ export const data=[
     "title":"computer",
     "imgUrl":require("./images/img-1.jpg"),
     "desc":"this is product one",
-    "price":"$ 122",
+    "price":122,
     "size":["lg","sm"]
     },
     {
@@ -13,7 +13,7 @@ export const data=[
         "title":"glasses",
          "imgUrl":require("./images/img-2.jpg"),
          "desc":"this is product tow",
-         "price":"$ 30",
+         "price":30,
          "size":["md","sm"]
         },
         {
@@ -21,7 +21,7 @@ export const data=[
             "title":"labtop",
              "imgUrl":require("./images/img-9.jpg"),
              "desc":"this is product three",
-             "price":"$ 90",
+             "price":90,
              "size":["lg","xl"]
             },
             {
@@ -29,8 +29,8 @@ export const data=[
                 "title":"umprella",
                  "imgUrl":require("./images/img-8.jpg"),
                  "desc":"this is product four",
-                 "price":"$ 200",
-                 "size":["md","xl","sm","lg"]
+                 "price":200,
+                 "size":["md","xl","lg","xs"]
                 }
     
 ]

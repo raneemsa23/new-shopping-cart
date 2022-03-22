@@ -11,7 +11,20 @@ export default function Products(props) {
   }
   return (
     <div className='products-wrapper'>
-      {props.products.map(item=>(
+      {props.filterArray.length==0?props.products.map(item=>(
+      <div className='product-item' key={item.id}>
+        <a href='#' onClick={()=>openModal(item)}>
+        <img src={item.imgUrl}alt={item.title} className='pro-img'/>
+        </a>
+         <div className='product-desc'>
+          <span>{item.title}</span>
+          <span>{item.price+"$"}</span>
+         
+         </div>
+         <button>Add To Cart</button>
+        
+         
+      </div>)):props.filterArray.map(item=>(
       <div className='product-item' key={item.id}>
         <a href='#' onClick={()=>openModal(item)}>
         <img src={item.imgUrl}alt={item.title} className='pro-img'/>
