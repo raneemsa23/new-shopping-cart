@@ -6,7 +6,7 @@ export const data=[
     "imgUrl":require("./images/img-1.jpg"),
     "desc":"this is product one",
     "price":122,
-    "size":["lg","sm"]
+    "size":["lg","sm"],
     },
     {
         "id":"2",

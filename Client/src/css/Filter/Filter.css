@@ -6,6 +6,9 @@
   width: 80%;
   margin-bottom: 10px;
 }
+.filter > div {
+  padding: 2px;
+}
 .filter select {
   width: 80%;
   padding: 10px;

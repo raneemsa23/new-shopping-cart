@@ -21,7 +21,7 @@ export default function Products(props) {
           <span>{item.price+"$"}</span>
          
          </div>
-         <button>Add To Cart</button>
+         <button onClick={()=>props.handleAddToCart(item)}>Add To Cart</button>
         
          
       </div>)):props.filterArray.map(item=>(
