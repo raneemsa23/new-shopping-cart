@@ -2,15 +2,19 @@ import React, { useState } from 'react'
 import '../../css/Cart/Cart.css'
 import img from '../../images/img-1.jpg'
 import Form from '../Form/Form'
+import Fade from 'react-reveal/Fade';
+
 export default function Cart(props) {
   const[isShow,setIsShow]=useState(false)
   return (
+  
     <div className='cart p-5'>
       <p>{props.cartItems.length==0?"Cart Empty":`there is ${props.cartItems.length}  item in cart`}</p>
       <hr />
       <div className=" items ">
       {
-          props.cartItems.map(item=><div key={item.id} className="item row">
+          props.cartItems.map(item=><Fade top>
+            <div key={item.id} className="item row">
           <div className="col-2">
               <img src={item.imgUrl} alt="photo" />
           </div>
@@ -23,7 +27,8 @@ export default function Cart(props) {
               <button className='btn btn-primary' onClick={()=>props.removeFromCart(item.id)}>remove</button>
           </div>
  
-         </div>)
+         </div>
+          </Fade>)
       }
       {
         props.cartItems.length!==0 && (<div className='total'>
