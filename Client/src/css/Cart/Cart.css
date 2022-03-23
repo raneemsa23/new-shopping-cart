@@ -12,3 +12,13 @@
   width: 80px;
   height: 80px;
 }
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.total span {
+  font-size: 22px;
+  font-weight: bold;
+}
