@@ -5,9 +5,17 @@ import Filter from "./components/Filter/Filter";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Products from "./components/Products/Products";
-import {data} from './data'
+import { useDispatch, useSelector } from 'react-redux';
+
+// import {data} from './data'
+import { getProducts } from "./store/productSlice";
+import axios from "axios";
+import { unwrapResult } from '@reduxjs/toolkit';
+
 export default function App() {
-	const [products,setProducts]=useState(data)
+	const dispatch=useDispatch()
+	const [products,setProducts]=useState("")
+	
 	const [filterArray,setFilterArray]=useState([])
 	const [size,setSize]=useState("all")
 	const [sort,setSort]=useState("")
@@ -33,12 +41,12 @@ function handleAddToCart(item){
 	
 }
 	function handleFilterBySize(e){
-		setProducts(data)
+		// setProducts(data)
 		console.log("products",products);
 		console.log("filterArray",filterArray);
 		setSize(e.target.value);
 		if(e.target.value==='all'){
-			setProducts(data)
+			// setProducts(data)
 			setFilterArray([])
 		}
 		
@@ -82,7 +90,7 @@ function handleAddToCart(item){
 		<div className="wrapper">
 			<div className="wrapper-products">
 			<Products
-			 products={products} 
+			 
 			 filterArray={filterArray}
 			 handleAddToCart={handleAddToCart}/>
 			</div>
