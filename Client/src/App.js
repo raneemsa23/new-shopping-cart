@@ -8,19 +8,19 @@ import Products from "./components/Products/Products";
 import { useDispatch, useSelector } from 'react-redux';
 
 // import {data} from './data'
-import { getProducts } from "./store/productSlice";
+import { fetchProducts, getProducts } from "./store/productSlice";
 import axios from "axios";
 import { unwrapResult } from '@reduxjs/toolkit';
 
 export default function App() {
-	const dispatch=useDispatch()
-	const [products,setProducts]=useState("")
 	
-	const [filterArray,setFilterArray]=useState([])
-	const [size,setSize]=useState("all")
-	const [sort,setSort]=useState("")
+	//   console.log(products,"app");
+	 
+	// const [filterArray,setFilterArray]=useState([])
+	// const [size,setSize]=useState("")
+	// const [sort,setSort]=useState("")
    
-	const [filterbysort,setFilterbysort]=useState([])
+	// const [filterbysort,setFilterbysort]=useState([])
     const[cartItems,setCartItems]=useState(JSON.parse(localStorage.getItem("cartItems"))||[])
 
 function handleAddToCart(item){
@@ -40,42 +40,16 @@ function handleAddToCart(item){
 	setCartItems(cartItemsClone)
 	
 }
-	function handleFilterBySize(e){
-		// setProducts(data)
-		console.log("products",products);
-		console.log("filterArray",filterArray);
-		setSize(e.target.value);
-		if(e.target.value==='all'){
-			// setProducts(data)
-			setFilterArray([])
-		}
-		
-		else{
-			setFilterArray(products.filter(p=>p.size.indexOf(e.target.value)!= -1))
-	
-		}
-		
-		
-	}
-	function handleSort(e){
 
-		setSort(e.target.value);
-		let order =e.target.value
-	    setFilterbysort(products.sort(function(a,b){
-			if(order=="lowest"){
-				return a.price -b.price
-			}
-			else if(order=="heighest"){
-				return b.price -a.price
-			}
-			else if(order=='latest'){
-				return b.id - a.id
-			}
-			
-
-		}))
 		
-	}
+		
+	// function handleSort(e){
+
+	// 	setSort(e.target.value);
+	//       let order=e.target.value
+		  
+		
+	// }
  useEffect(()=>{
 	 localStorage.setItem("cartItems",JSON.stringify(cartItems))
  },[cartItems])
@@ -90,18 +64,19 @@ function handleAddToCart(item){
 		<div className="wrapper">
 			<div className="wrapper-products">
 			<Products
-			 
-			 filterArray={filterArray}
+			//  products={products}
+			//  filterArray={filterArray}
 			 handleAddToCart={handleAddToCart}/>
 			</div>
 			<div  className="wrapper-filter">
 				<Filter 
-			    sort={sort}
-				size={size}
-				handleSort={handleSort} 
-				handleFilterBySize={handleFilterBySize} 
-				filterArray={filterArray}
-				products={products}
+				//  products={products}
+			    // sort={sort}
+				// size={size}
+				// handleSort={handleSort} 
+				// handleFilterBySize={handleFilterBySize} 
+				// filterArray={filterArray}
+				// products={products}
 				/>
 				
 			</div>
