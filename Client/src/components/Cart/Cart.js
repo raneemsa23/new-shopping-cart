@@ -8,6 +8,8 @@ import { removeItem } from '../../store/cartSlice';
 
 export default function Cart(props) {
   const[isShow,setIsShow]=useState(false)
+  const [total,setTotal]=useState(0)
+  // console.log(total,"total");
   const {cartItems}=useSelector(state=>state.cart)
   const dispatch=useDispatch()
   console.log("cartItems",cartItems);
@@ -48,7 +50,7 @@ export default function Cart(props) {
       </div>)
       }
       {
-        isShow && <Form setIsShow={setIsShow}/>
+        isShow && <Form setIsShow={setIsShow} total={total}/>
       }
 
       </div>
