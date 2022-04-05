@@ -39,9 +39,12 @@ localStorage.setItem('cartItems',JSON.stringify(state.cartItems))
 
 },
 clearCart:(state,action)=>{
-  state.cartItems=[]
+ 
+  // state.cartItems=[]
 
-localStorage.clear('cartItems')
+localStorage.clear('cartItems');
+document.location.reload();
+
 }
   },////reducer
 })

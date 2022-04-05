@@ -14,19 +14,23 @@ export default function Form(props) {
     const dispatch=useDispatch()
 	function handleSubmit(e) {
 		e.preventDefault();
+		if(e.target.elements[0].value==""||e.target.elements[1].value==""){
+           alert("you should fill all cells")
+		}
 		
-		let orderItem = {
-			name: val.name,
-			email: val.email,
-		};
-		// setOrder(order)
-		dispatch(postOrder(orderItem))
-		// console.lo;
-		dispatch(clearCart())
-		setChecked(true)
-		console.log("orderrr", order);
-	
-	
+		else{
+			let orderItem = {
+				name: val.name,
+				email: val.email,
+			};
+			// setOrder(order)
+			dispatch(postOrder(orderItem))
+			// console.lo;
+			
+			setChecked(true)
+			console.log("orderrr", order);
+		
+		}
 	}
 	function handleChange(e) {
 		setVal({ ...val, [e.target.name]: e.target.value });
@@ -65,10 +69,10 @@ export default function Form(props) {
 			</div>
 			
 		</Fade>
-		{<FormModal setIsShow={props.setIsShow}/>}
-		    {/* {
-				order&&checked&&<FormModal setChecked={setChecked}  />
-			} */}
+		
+		    {
+				order&&checked&&<FormModal setIsShow={props.setIsShow} />
+			}
 
 		</div>
 	);

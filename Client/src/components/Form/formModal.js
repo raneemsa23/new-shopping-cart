@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import "./formModal.css";
 import { useDispatch, useSelector } from "react-redux";
 import { clearOrder } from "../../store/orderSlice";
+import { clearCart } from "../../store/cartSlice";
 export default function FormModal(props) {
 	const { cartItems } = useSelector((state) => state.cart);
 	const dispatch = useDispatch();
@@ -13,6 +14,7 @@ export default function FormModal(props) {
 		// order={};
 		//  props.setChecked(false)
 		dispatch(clearOrder());
+        dispatch(clearCart())
 	}
 	console.log("formmodel", order);
 	return (
