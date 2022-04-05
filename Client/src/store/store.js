@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import cartSlice from './cartSlice'
 import  filterSlice  from './filterSlice'
+import orderSlice from './orderSlice'
 import productSlice from './productSlice'
 
 export const store = configureStore({
@@ -8,5 +9,6 @@ export const store = configureStore({
       product:productSlice,
       filter:filterSlice,
       cart:cartSlice,
+      order:orderSlice
   },
 })

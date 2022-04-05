@@ -37,11 +37,16 @@ console.log("new",newCartItems);
 state.cartItems=newCartItems
 localStorage.setItem('cartItems',JSON.stringify(state.cartItems))
 
+},
+clearCart:(state,action)=>{
+  state.cartItems=[]
+
+localStorage.clear('cartItems')
 }
   },////reducer
 })
 
 
-export const {addToCart,removeItem } = cartSlice.actions
+export const {addToCart,removeItem ,clearCart} = cartSlice.actions
 
 export default cartSlice.reducer

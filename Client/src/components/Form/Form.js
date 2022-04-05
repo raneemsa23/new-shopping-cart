@@ -3,24 +3,35 @@ import "../../css/Form/Form.css";
 import Input from "../Input/Input";
 import Fade from "react-reveal/Fade";
 import FormModal from "./formModal";
+import { useDispatch, useSelector } from "react-redux";
+import { postOrder } from "../../store/orderSlice";
+import { clearCart } from "../../store/cartSlice";
 export default function Form(props) {
 	const [val, setVal] = useState("");
-	const [checked,setChecked]=useState(true)
-	const [order,setOrder]=useState(false)
+	const [checked,setChecked]=useState(false)
+	// const [order,setOrder]=useState(false)
+	const {order}=useSelector(state=>state.order)
+    const dispatch=useDispatch()
 	function handleSubmit(e) {
 		e.preventDefault();
-		let order = {
+		
+		let orderItem = {
 			name: val.name,
 			email: val.email,
 		};
-		setOrder(order)
+		// setOrder(order)
+		dispatch(postOrder(orderItem))
+		// console.lo;
+		dispatch(clearCart())
 		setChecked(true)
-		console.log("order", order);
+		console.log("orderrr", order);
+	
 	
 	}
 	function handleChange(e) {
 		setVal({ ...val, [e.target.name]: e.target.value });
 	}
+	console.log("vall",val);
 	return (
 		<div>
 
@@ -54,9 +65,10 @@ export default function Form(props) {
 			</div>
 			
 		</Fade>
-		    {
-				order&&checked&&<FormModal order={order} setOrder={setOrder}/>
-			}
+		{<FormModal setIsShow={props.setIsShow}/>}
+		    {/* {
+				order&&checked&&<FormModal setChecked={setChecked}  />
+			} */}
 
 		</div>
 	);
