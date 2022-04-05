@@ -5,7 +5,7 @@ import Form from '../Form/Form'
 import Fade from 'react-reveal/Fade';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItem } from '../../store/cartSlice';
-
+import { Words } from '../../staticWords';
 export default function Cart(props) {
   const[isShow,setIsShow]=useState(false)
   const [total,setTotal]=useState(0)
@@ -29,8 +29,8 @@ export default function Cart(props) {
           </div>
           <div className="col-3">
               <p>{item.title}</p>
-              <p>QTY:{item.qty}</p>
-              <p>price:{item.price}</p>
+              <p>{Words.QTY}:{item.qty}</p>
+              <p>{Words.price}{item.price}</p>
           </div>
           <div className="col-7 text-end px-5">
               <button className='btn btn-primary' onClick={()=>handleRemove(item.id)

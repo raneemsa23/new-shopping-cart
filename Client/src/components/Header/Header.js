@@ -1,10 +1,16 @@
 import React from 'react'
 import '../../css/Header/Header.css'
-import { staticWords } from '../../staticWords'
+import { Words } from '../../staticWords'
+import Nav from '../Nav/Nav'
 export default function Header() {
   return (
-    <div className='header'>
-     {staticWords.headerTitle}
+    <>
+     <div className='header'>
+     {Words.headerTitle}
     </div>
+    {/* <Nav/> */}
+    </>
+   
+    
   )
 }
